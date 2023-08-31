@@ -1,5 +1,6 @@
 package tech.ada.bootcamp.arquitetura.cartaoservice.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import tech.ada.bootcamp.arquitetura.cartaoservice.payloads.request.CadastroUsuarioRequest;
@@ -7,6 +8,7 @@ import tech.ada.bootcamp.arquitetura.cartaoservice.payloads.response.CadastroUsu
 import tech.ada.bootcamp.arquitetura.cartaoservice.payloads.response.FaturaResponse;
 
 @RestController
+@Tag(name = "fatura", description = "Gerar fatura")
 @RequestMapping("/fatura")
 @Slf4j
 public class VerFaturaController {
