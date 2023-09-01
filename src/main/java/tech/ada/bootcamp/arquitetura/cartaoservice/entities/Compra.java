@@ -1,6 +1,7 @@
 package tech.ada.bootcamp.arquitetura.cartaoservice.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,8 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "compra")
 public class Compra {
@@ -18,15 +18,13 @@ public class Compra {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private LocalDateTime dataCompra;
-
-    public BigDecimal valor;
-
-
     @ManyToOne
     @JoinColumn(name = "numeroCartao")
     public Cartao cartao;
 
+    private LocalDateTime dataCompra;
+
+    public BigDecimal valor;
     public StatusCompra statusCompra;
 
 }

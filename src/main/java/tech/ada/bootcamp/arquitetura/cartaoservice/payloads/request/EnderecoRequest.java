@@ -1,15 +1,15 @@
 package tech.ada.bootcamp.arquitetura.cartaoservice.payloads.request;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class EnderecoRequest {
-    private String cep;
-    private String rua;
-    private String bairro;
-    private String cidade;
-    private String estado;
+    private @NotNull String cep;
+    private @NotNull String rua;
+    private @NotNull String bairro;
+    private @NotNull String cidade;
+    private @NotNull String estado;
+    private @NotNull String numero;
     private String complemento;
-    private String numero;
-
 }

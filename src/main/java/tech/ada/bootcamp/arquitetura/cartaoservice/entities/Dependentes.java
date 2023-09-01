@@ -13,7 +13,9 @@ import tech.ada.bootcamp.arquitetura.cartaoservice.payloads.request.CadastroUsua
 @Table(name = "usuario")
 @NoArgsConstructor
 public class Dependentes {
+
     @Id
     private String identificador;
     private String nome;
+
 }

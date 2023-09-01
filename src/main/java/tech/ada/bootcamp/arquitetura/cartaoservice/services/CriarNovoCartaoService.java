@@ -22,9 +22,13 @@ public class CriarNovoCartaoService {
     private static Random random;
     private final CartaoRepository cartaoRepository;
     private final CriarUsuarioService criarUsuarioService;
+    private final EnderecoService enderecoService;
 
     public CadastroUsuarioResponse execute(CadastroUsuarioRequest cadastroUsuarioRequest){
-        return criarCartao(cadastroUsuarioRequest, criarUsuarioService.criarUsuario(cadastroUsuarioRequest));
+        Usuario usuarioGravado = criarUsuarioService.criarUsuario(cadastroUsuarioRequest);
+        enderecoService.criarEndereco(cadastroUsuarioRequest.getEnderecoRequest(), usuarioGravado);
+
+        return criarCartao(cadastroUsuarioRequest, usuarioGravado);
     }
 
     private CadastroUsuarioResponse criarCartao(CadastroUsuarioRequest cadastroUsuarioRequest,Usuario usuario ){
@@ -32,7 +36,7 @@ public class CriarNovoCartaoService {
         Cartao cartao = new Cartao();
 
         cartao.setUsuario(usuario);
-        cartao.setNomeTitular(usuario.getNome());
+        cartao.setNomeTitular(cadastroUsuarioRequest.getNome());
         cartao.setTipoCartao(cadastroUsuarioRequest.getTipoCartao());
         cartao.setIdContaBanco(UUID.randomUUID().toString());
         cartao.setVencimentoCartao(dataAtual.plusYears(5));

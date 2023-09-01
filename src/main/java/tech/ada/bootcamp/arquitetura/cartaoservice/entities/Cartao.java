@@ -16,13 +16,9 @@ public class Cartao {
     private String numeroCartao;
     private String nomeTitular;
     private LocalDate vencimentoCartao;
-
     private String codigoSeguranca;
-
     private TipoCartao tipoCartao;
-
     private String idContaBanco;
-
     private Boolean dependente = Boolean.FALSE;
 
     @ManyToOne

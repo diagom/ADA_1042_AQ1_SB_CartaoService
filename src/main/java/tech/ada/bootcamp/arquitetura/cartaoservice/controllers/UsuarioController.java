@@ -20,13 +20,12 @@ public class UsuarioController {
     @PostMapping(path = "", produces = "application/json" )
     @CrossOrigin(origins = "/*")
     public CadastroUsuarioResponse cadastrarUsuario(@RequestBody CadastroUsuarioRequest cadastroUsuarioRequest){
-        criarNovoCartaoService.execute(cadastroUsuarioRequest);
-        return new CadastroUsuarioResponse();
+        return  criarNovoCartaoService.execute(cadastroUsuarioRequest);
     }
 
     @PostMapping(path = "/dependente/{idUsuario}", produces = "application/json" )
     public CadastroUsuarioResponse adicionarDependente(@RequestBody CadastroUsuarioRequest cadastroUsuarioRequest, @PathVariable("idUsuario") String idUsuario){
-        return new CadastroUsuarioResponse();
+        return  criarNovoCartaoService.execute(cadastroUsuarioRequest);
     }
 
 }
