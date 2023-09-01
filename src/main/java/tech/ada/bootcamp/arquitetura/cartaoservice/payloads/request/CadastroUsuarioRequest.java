@@ -1,8 +1,8 @@
 package tech.ada.bootcamp.arquitetura.cartaoservice.payloads.request;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 import tech.ada.bootcamp.arquitetura.cartaoservice.payloads.TipoCartao;
 
 import java.time.LocalDate;
@@ -11,13 +11,9 @@ import java.util.List;
 @Data
 public class CadastroUsuarioRequest {
 
-    private String identificador;
-
-    private String nome;
-    private EnderecoRequest enderecoRequest;
-
-    private TipoCartao tipoCartao;
-
+    private @NotNull @CPF String identificador;
+    private @NotNull String nome;
+    private @NotNull EnderecoRequest enderecoRequest;
+    private @NotNull TipoCartao tipoCartao;
     private List<String> dependentes;
-
 }
